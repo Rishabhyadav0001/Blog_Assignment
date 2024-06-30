@@ -1,0 +1,14 @@
+// src/redux/store.js
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
+import blogReducer from './reducers/blogReducer';
+import authReducer from './reducers/authReducer';
+
+const rootReducer = combineReducers({
+  blogs: blogReducer,
+  auth: authReducer,
+});
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
+export default store;
